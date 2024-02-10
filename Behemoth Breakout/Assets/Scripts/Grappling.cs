@@ -62,12 +62,12 @@ public class Grappling : MonoBehaviour
         
     }
 
-    private void LateUpdate()
-    {
-        if (grappling)
-           lr.SetPosition(0, gunTip.position);
-            // SubStateMachine();
-    }
+    // private void LateUpdate()
+    // {
+    //     if (grappling)
+    //        lr.SetPosition(0, gunTip.position);
+    //         // SubStateMachine();
+    // }
 
     private void StartGrapple()
     {
