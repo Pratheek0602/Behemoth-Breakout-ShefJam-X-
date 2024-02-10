@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4465788, g: 0.49641287, b: 0.5748173, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657886, g: 0.49641275, b: 0.5748176, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -366,6 +366,18 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: aa801e89f4c11430598b0b45aa926731, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: aa801e89f4c11430598b0b45aa926731, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: aa801e89f4c11430598b0b45aa926731, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: aa801e89f4c11430598b0b45aa926731, type: 3}
       propertyPath: m_LocalPosition.x
       value: -25.03
       objectReference: {fileID: 0}
@@ -686,9 +698,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: aa801e89f4c11430598b0b45aa926731, type: 3}
       insertIndex: -1
       addedObject: {fileID: 764766844}
-    - targetCorrespondingSourceObject: {fileID: -3168422337102530296, guid: aa801e89f4c11430598b0b45aa926731, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2084742860}
   m_SourcePrefab: {fileID: 100100000, guid: aa801e89f4c11430598b0b45aa926731, type: 3}
 --- !u!4 &56617734 stripped
 Transform:
@@ -6164,40 +6173,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4071390273635838, guid: abdd95d0229d64588b03d2806d9cc19a, type: 3}
   m_PrefabInstance: {fileID: 2048280649}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2084742857 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -3168422337102530296, guid: aa801e89f4c11430598b0b45aa926731, type: 3}
-  m_PrefabInstance: {fileID: 56617733}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2084742860
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2084742857}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ae08cb6caa8c408dbdfb2b488a38ebc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  navMeshAgent: {fileID: 0}
-  startWaitTime: 4
-  timeToRotate: 2
-  speedWalk: 6
-  speedRun: 9
-  viewRaduis: 15
-  viewAngle: 90
-  playerMask:
-    serializedVersion: 2
-    m_Bits: 0
-  whatIsWallMask:
-    serializedVersion: 2
-    m_Bits: 0
-  meshResolution: 1
-  edgeIterations: 4
-  edgeDistance: 0.5
-  waypoints: []
 --- !u!1 &2104704712
 GameObject:
   m_ObjectHideFlags: 0
