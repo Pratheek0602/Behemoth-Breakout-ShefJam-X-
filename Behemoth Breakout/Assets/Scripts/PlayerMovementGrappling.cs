@@ -127,7 +127,7 @@ public class PlayerMovementGrappling : MonoBehaviour
         else if (activeGrapple)
         {
             state = MovementState.grappling;
-            moveSpeed = sprintSpeed;
+            moveSpeed = 12;
         }
 
         // // Mode - Swinging
@@ -142,14 +142,14 @@ public class PlayerMovementGrappling : MonoBehaviour
         else if (grounded && Input.GetKey(sprintKey))
         {
             state = MovementState.sprinting;
-            moveSpeed = sprintSpeed * 1.9f;
+            moveSpeed = 13;
         }
 
         // Mode - Walking
         else if (grounded)
         {
             state = MovementState.walking;
-            moveSpeed = walkSpeed;
+            moveSpeed = 3;
         }
 
         // Mode - Air

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657886, g: 0.49641275, b: 0.5748176, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465788, g: 0.49641287, b: 0.5748173, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1385,7 +1385,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.01
-  far clip plane: 1000
+  far clip plane: 50000
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -1505,11 +1505,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7feb262ad5fe54df5a9e1cae5cda45fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 12
-  groundDrag: 15
-  jumpForce: 20
+  moveSpeed: 15
+  groundDrag: 12
+  jumpForce: 10
   jumpCooldown: 2
-  airMultiplier: 0.4
+  airMultiplier: 0.04
   walkSpeed: 0
   sprintSpeed: 0
   jumpKey: 32
@@ -6249,3 +6249,5 @@ SceneRoots:
   - {fileID: 705507995}
   - {fileID: 1993443401}
   - {fileID: 968634026}
+  - {fileID: 441110087}
+  - {fileID: 1505637109}

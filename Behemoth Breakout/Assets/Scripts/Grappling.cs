@@ -42,16 +42,16 @@ public class Grappling : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(rb.position);
+        // Debug.Log(rb.position);
         // if (Input.GetKeyDown(grappleKey) && !grappling) StartGrapple();
         if (Input.GetKeyDown(grappleKey) && !grappling) {
-            Debug.Log("idk idk");
+            // Debug.Log("idk idk");
             // StopGrapple();
             StartGrapple(); 
         }
 
         if (Input.GetKeyUp(grappleKey)) {
-            
+            // Debug.Log("idk idk");
             StopGrapple();
         }
 
@@ -108,10 +108,15 @@ public class Grappling : MonoBehaviour
         // bool anyInputKeyPressed = horizontalInput != 0 || verticalInput != 0;
         // lr.SetPosition(1, grapplePoint);
 
-        if (Vector3.Distance(rb.position, grapplePoint) <= 0.25f && grappling)
+        // Debug.Log(Vector3.Distance(rb.position, grapplePoint));
+        // Debug.Log(grapplePoint);
+        // Debug.Log(rb.position);
+        // Debug.Log("next");
+
+        if (Vector3.Distance(rb.position, grapplePoint) <= 2 && grappling)
         {
             // Player has reached the point
-            // Debug.Log("Player has reached the target point.");
+            Debug.Log("Player has reached the target point.");
             if (rb.position.y != -0.23){
                 FreezeRigidbodyOnLedge();
             }
@@ -143,7 +148,7 @@ public class Grappling : MonoBehaviour
 
         // reachedGrapplePoint = true;
 
-        // Debug.Log("Executed grapple");
+        // Debug.Log(grapplePoint);
 
         // if (Vector3.Distance(rb.position, grapplePoint) <= 0.3f) {
         //     SubStateMachine();
