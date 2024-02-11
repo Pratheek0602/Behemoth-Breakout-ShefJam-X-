@@ -5,11 +5,14 @@ using UnityEngine;
 public class AIController : MonoBehaviour
 {
     public UnityEngine.AI.NavMeshAgent navMeshAgent;
+
     public Animator animator;
     public float startWaitTime = 4;
     public float timeToRotate = 2;
     public float speedWalk = 6;
     public float speedRun = 9;
+
+    public NewBehaviourScript enenyManager;
 
     public float viewRaduis = 15;
     public float viewAngle = 90;
@@ -49,6 +52,8 @@ public class AIController : MonoBehaviour
         navMeshAgent.isStopped = false;
         navMeshAgent.speed = speedWalk;
         navMeshAgent.SetDestination(waypoints[m_CurrentWaypointIndex].position);
+
+        enenyManager = FindObjectOfType<NewBehaviourScript>();
     }
 
     // Update is called once per frame
