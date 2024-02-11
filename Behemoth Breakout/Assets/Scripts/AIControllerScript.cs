@@ -63,10 +63,44 @@ public class AIController : MonoBehaviour
         else {
             // Debug.Log("pattroling");
             Patroling();
-            
         }
         
     }
+
+    public void Die(){
+        Stop();
+        // animator.SetBool("isDead", true);
+        // Debug.Log("shinda");
+        StartCoroutine(DelayedAction());
+        // yield return new WaitForSeconds(2f);
+        // animator.enabled = false; // Disable the animator component
+        // navMeshAgent.enabled = false;
+    }
+
+    IEnumerator DelayedAction()
+    {
+        // Wait for 3 seconds
+        yield return new WaitForSeconds(2f);
+        animator.enabled = false;
+        navMeshAgent.enabled = false;
+        enabled = false;
+
+        // Execute your action after the delay
+        // Debug.Log("Delayed action executed!");
+    }
+
+    // private void OnHitCollisionEnter(Collision collision)
+    // {
+    //     // Check if the collision is with the enemy
+    //     if (collision.gameObject.CompareTag("Enemy"))
+    //     {
+    //         Debug.Log("GET WRECKED");
+    //         // Calculate the direction away from the enemy
+    //         Vector3 pushDirection = (transform.position - collision.transform.position).normalized;
+    //         // Apply a force to push the player back
+    //         GetComponent<Rigidbody>().AddForce(pushDirection * hitForce, ForceMode.Impulse);
+    //     }
+    // }
 
     private void Chasing() {
         animator.SetBool("isSwiping", false);

@@ -52,7 +52,6 @@ public class PlayerController : MonoBehaviour
         anim.SetBool("isAttacking",false);
 
     }
-
     // Animator animator;
     // AudioSource audioSource;
 
@@ -211,22 +210,22 @@ public class PlayerController : MonoBehaviour
 
 
 
-    // PlayerInput playerInput;
-    // // PlayerInput.MainActions input;
+    // // PlayerInput playerInput;
+    // // // PlayerInput.MainActions input;
 
-    // CharacterController controller;
-    // Animator animator;
-    // AudioSource audioSource;
+    // // CharacterController controller;
+    // // Animator animator;
+    // // AudioSource audioSource;
 
 
-    // // [Header("Controller")]
-    // // public float moveSpeed = 5;
-    // // public float gravity = -9.8f;
-    // // public float jumpHeight = 1.2f;
+    // // // [Header("Controller")]
+    // // // public float moveSpeed = 5;
+    // // // public float gravity = -9.8f;
+    // // // public float jumpHeight = 1.2f;
 
-    // Vector3 _PlayerVelocity;
+    // // Vector3 _PlayerVelocity;
 
-    // // bool isGrounded;
+    // // // bool isGrounded;
 
     // // [Header("Camera")]
     // // public Camera cam;
