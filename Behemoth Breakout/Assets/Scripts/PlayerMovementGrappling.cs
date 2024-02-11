@@ -15,6 +15,8 @@ public class PlayerMovementGrappling : MonoBehaviour
     public float airMultiplier;
     bool readyToJump;
 
+    public float hitForce = 10f;
+
     [HideInInspector] public float walkSpeed;
     [HideInInspector] public float sprintSpeed;
 
@@ -88,6 +90,19 @@ public class PlayerMovementGrappling : MonoBehaviour
             rb.drag = 0;
 
         // TextStuff();
+    }
+
+    private void OnHitCollisionEnter(Collision collision)
+    {
+        // Check if the collision is with the enemy
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("GET WRECKED");
+            // Calculate the direction away from the enemy
+            Vector3 pushDirection = (transform.position - collision.transform.position).normalized;
+            // Apply a force to push the player back
+            GetComponent<Rigidbody>().AddForce(pushDirection * hitForce, ForceMode.Impulse);
+        }
     }
 
     private void FixedUpdate()
