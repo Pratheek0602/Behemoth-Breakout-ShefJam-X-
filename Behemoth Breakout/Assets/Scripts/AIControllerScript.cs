@@ -71,23 +71,26 @@ public class AIController : MonoBehaviour
         Stop();
         // animator.SetBool("isDead", true);
         // Debug.Log("shinda");
-        StartCoroutine(DelayedAction());
+        // StartCoroutine(DelayedAction());
+        animator.enabled = false;
+        navMeshAgent.enabled = false;
+        enabled = false;
         // yield return new WaitForSeconds(2f);
         // animator.enabled = false; // Disable the animator component
         // navMeshAgent.enabled = false;
     }
 
-    IEnumerator DelayedAction()
-    {
-        // Wait for 3 seconds
-        yield return new WaitForSeconds(2f);
-        animator.enabled = false;
-        navMeshAgent.enabled = false;
-        enabled = false;
+    // IEnumerator DelayedAction()
+    // {
+    //     // Wait for 3 seconds
+    //     // yield return new WaitForSeconds(2f);
+    //     animator.enabled = false;
+    //     navMeshAgent.enabled = false;
+    //     enabled = false;
 
-        // Execute your action after the delay
-        // Debug.Log("Delayed action executed!");
-    }
+    //     // Execute your action after the delay
+    //     // Debug.Log("Delayed action executed!");
+    // }
 
     // private void OnHitCollisionEnter(Collision collision)
     // {

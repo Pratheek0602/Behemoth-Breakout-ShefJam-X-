@@ -17,7 +17,7 @@ public class CollisionDetection : MonoBehaviour
             // Debug.Log("WORKSSSSSSSSSSSSS");
             Actor enemy = other.GetComponent<Actor>();
             other.GetComponent<Animator>().SetTrigger("Hit");
-            Instantiate(HitParticle, new Vector3(other.transform.position.x, transform.position.y, other.transform.position.z),
+            Instantiate(HitParticle, new Vector3(other.transform.position.x, other.transform.position.y, other.transform.position.z),
             other.transform.rotation);
             // Deal damage to the enemy
             enemy.TakeDamage(damageAmount);
