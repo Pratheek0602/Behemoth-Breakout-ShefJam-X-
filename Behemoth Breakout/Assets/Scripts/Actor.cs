@@ -15,6 +15,7 @@ public class Actor : MonoBehaviour
     public void TakeDamage(int amount)
     {
         currentHealth -= amount;
+        Debug.Log("currebt health"+currentHealth);
 
         if(currentHealth <= 0)
         { Death(); }

@@ -655,14 +655,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: d2bd0c8d67601455c9d99c1178419d83, type: 2}
     - target: {fileID: 5866666021909216657, guid: aa801e89f4c11430598b0b45aa926731, type: 3}
       propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'mixamorig:Hips'\n\tTransform 'mixamorig:LeftFoot'\n\tTransform
-        'mixamorig:LeftHandThumb2'\n\tTransform 'mixamorig:LeftHandIndex1'\n\tTransform
-        'mixamorig:LeftHandPinky2'\n\tTransform 'mixamorig:RightHandRing2'\n\tTransform
-        'mixamorig:Spine1'\n\tTransform 'mixamorig:LeftToeBase'\n\tTransform 'mixamorig:LeftHandThumb3'\n\tTransform
-        'mixamorig:RightArm'\n\tand more ...\n\tFrom animation clip 'Mutant Walking'\n\tFrom
-        animation clip 'Mutant Right Turn 90'\n\tFrom animation clip 'Mutant Swiping'"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6240733294840144465, guid: aa801e89f4c11430598b0b45aa926731, type: 3}
       propertyPath: m_Layer
@@ -715,7 +708,7 @@ PrefabInstance:
       addedObject: {fileID: 764766844}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: aa801e89f4c11430598b0b45aa926731, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 764766849}
+      addedObject: {fileID: 764766848}
   m_SourcePrefab: {fileID: 100100000, guid: aa801e89f4c11430598b0b45aa926731, type: 3}
 --- !u!1001 &133471775
 PrefabInstance:
@@ -1388,7 +1381,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sensX: 600
   sensY: 600
-  orientation: {fileID: 1169326839}
+  orientation: {fileID: 2143701825}
 --- !u!81 &419422278
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1461,6 +1454,7 @@ GameObject:
   - component: {fileID: 441110090}
   - component: {fileID: 441110088}
   - component: {fileID: 441110094}
+  - component: {fileID: 441110095}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -1483,7 +1477,7 @@ Transform:
   m_Children:
   - {fileID: 995562753}
   - {fileID: 2104704713}
-  - {fileID: 1169326839}
+  - {fileID: 2143701825}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &441110088
@@ -1550,7 +1544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7feb262ad5fe54df5a9e1cae5cda45fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 6
+  moveSpeed: 5
   groundDrag: 12
   jumpForce: 10
   jumpCooldown: 2
@@ -1566,7 +1560,7 @@ MonoBehaviour:
   maxSlopeAngle: 0
   cam: {fileID: 0}
   grappleFov: 95
-  orientation: {fileID: 1169326839}
+  orientation: {fileID: 2143701825}
   state: 0
   freeze: 0
   activeGrapple: 0
@@ -2736,6 +2730,19 @@ MonoBehaviour:
   - {fileID: 515789684}
   - {fileID: 600683586}
   - {fileID: 1948203372}
+--- !u!114 &764766848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 764766843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 082d7e81eb8d74ea8b421dc15297a9ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 4
 --- !u!1001 &767405452
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6874,6 +6881,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 176a42107ce66c44aa74a67424591597, type: 3}
+--- !u!1 &2143701824
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2143701825}
+  m_Layer: 9
+  m_Name: Orientation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2143701825
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2143701824}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 441110087}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2147311346
 PrefabInstance:
   m_ObjectHideFlags: 0
