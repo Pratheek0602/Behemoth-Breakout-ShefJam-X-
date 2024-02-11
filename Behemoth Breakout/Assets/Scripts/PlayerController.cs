@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     AudioSource audioSource;
 
     [Header("Attacking")]
+    public float attackDistance = 3f;
     public float attackDelay = 0.4f;
     public float attackSpeed = 1f;
     public int attackDamage = 1;
@@ -23,6 +24,9 @@ public class PlayerController : MonoBehaviour
     bool readyToAttack = true;
     int attackCount;
 
+    [Header("Input")]
+    public KeyCode leaveGrappleKey = KeyCode.Mouse0;
+
     void Awake()
     { 
         animator = GetComponentInChildren<Animator>();
@@ -31,9 +35,10 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire1")) // Fire1 corresponds to the left mouse button
+        if (Input.GetKeyDown(leaveGrappleKey)) // Fire1 corresponds to the left mouse button
         {
             Attack();
+            Debug.Log("Attackingggggg");
         }
     }
 
@@ -71,7 +76,7 @@ public class PlayerController : MonoBehaviour
     void AttackRaycast()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.forward, out hit, Mathf.Infinity, attackLayer))
+        if (Physics.Raycast(transform.position, transform.forward, out hit, attackDistance, attackLayer))
         { 
             HitTarget(hit.point);
 

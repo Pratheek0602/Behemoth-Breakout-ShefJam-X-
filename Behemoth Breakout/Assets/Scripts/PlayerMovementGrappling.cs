@@ -149,7 +149,7 @@ public class PlayerMovementGrappling : MonoBehaviour
         else if (grounded)
         {
             state = MovementState.walking;
-            moveSpeed = 3;
+            moveSpeed = 5;
         }
 
         // Mode - Air
