@@ -28,6 +28,6 @@ public class NewBehaviourScript : MonoBehaviour
     private void ShowGameOverScreen()
     {
         // Code t
-        SceneManager.LoadScene("Game Over", LoadSceneMode.Single);
+        SceneManager.LoadScene("Game Clear", LoadSceneMode.Single);
     }
 }
