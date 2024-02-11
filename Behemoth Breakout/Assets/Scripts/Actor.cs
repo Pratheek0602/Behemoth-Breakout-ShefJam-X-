@@ -9,6 +9,7 @@ public class Actor : MonoBehaviour
     public AIController aiController; // Reference to the AIController script attached to the enemy
 
     public NewBehaviourScript enenyManager;
+    private bool dead = false;
     
 
     void Awake()
@@ -27,16 +28,18 @@ public class Actor : MonoBehaviour
         { 
             Debug.Log("ctime to die");
             Death(); 
+            
         }
     }
 
     private void Death()
     {
-        if(enenyManager != null)
+        if(enenyManager != null && !dead)
         {
             // Debug.Log("ctime to die");
             enenyManager.EnemyKilled();
             aiController.Die();
+            dead = true;
             
         }
         else{
