@@ -2711,11 +2711,11 @@ MonoBehaviour:
   navMeshAgent: {fileID: 764766844}
   animator: {fileID: 0}
   startWaitTime: 0
-  timeToRotate: 0.5
+  timeToRotate: 0
   speedWalk: 6
   speedRun: 9
-  viewRaduis: 20
-  viewAngle: 90
+  viewRaduis: 50
+  viewAngle: 130
   playerMask:
     serializedVersion: 2
     m_Bits: 512
@@ -5284,15 +5284,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 434320343503678772, guid: 7b3e6db10d22f504dbc606110b2cb5e7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 100.848434
+      value: 105.56
       objectReference: {fileID: 0}
     - target: {fileID: 434320343503678772, guid: 7b3e6db10d22f504dbc606110b2cb5e7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.3362885
+      value: 2.19
       objectReference: {fileID: 0}
     - target: {fileID: 434320343503678772, guid: 7b3e6db10d22f504dbc606110b2cb5e7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 103.6527
+      value: 120.99
       objectReference: {fileID: 0}
     - target: {fileID: 434320343503678772, guid: 7b3e6db10d22f504dbc606110b2cb5e7, type: 3}
       propertyPath: m_LocalRotation.w
