@@ -113,13 +113,13 @@ public class Grappling : MonoBehaviour
         // Debug.Log(rb.position);
         // Debug.Log("next");
 
-        if (Vector3.Distance(rb.position, grapplePoint) <= 2 && grappling)
+        if (Vector3.Distance(rb.position, grapplePoint) <= 5 && grappling)
         {
             // Player has reached the point
             Debug.Log("Player has reached the target point.");
-            if (rb.position.y != -0.23){
+            // if (rb.position.y != -0.23){
                 FreezeRigidbodyOnLedge();
-            }
+            // }
             
             
             // if (Input.GetKeyDown(grappleKey)) StopGrapple();          
