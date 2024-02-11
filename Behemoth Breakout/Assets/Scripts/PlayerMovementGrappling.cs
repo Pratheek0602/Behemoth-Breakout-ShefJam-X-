@@ -171,6 +171,7 @@ public class PlayerMovementGrappling : MonoBehaviour
         else
         {
             state = MovementState.air;
+            moveSpeed = 6;
         }
     }
 
@@ -198,7 +199,7 @@ public class PlayerMovementGrappling : MonoBehaviour
 
         // in air
         else if (!grounded)
-            rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
+            rb.AddForce(moveDirection.normalized * moveSpeed * 2f * airMultiplier, ForceMode.Force);
 
         // turn gravity off while on slope
         rb.useGravity = !OnSlope();

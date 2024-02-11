@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657886, g: 0.49641275, b: 0.5748176, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465788, g: 0.49641287, b: 0.5748173, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1733,7 +1733,7 @@ MonoBehaviour:
   moveSpeed: 5
   groundDrag: 12
   jumpForce: 8
-  jumpCooldown: 2
+  jumpCooldown: 15
   airMultiplier: 0.4
   hitForce: 10
   walkSpeed: 0
@@ -5007,11 +5007,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4534264641828652, guid: 539fa9bc6500e44708e0f7b2c78cbefe, type: 3}
   m_PrefabInstance: {fileID: 1126132565}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1145642553 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -6170625038081293824, guid: aa801e89f4c11430598b0b45aa926731, type: 3}
-  m_PrefabInstance: {fileID: 56617733}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1174884118
 PrefabInstance:
