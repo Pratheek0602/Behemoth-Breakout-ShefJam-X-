@@ -3153,8 +3153,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   navMeshAgent: {fileID: 764766844}
   animator: {fileID: 764766853}
-  startWaitTime: 0
-  timeToRotate: 0.5
+  startWaitTime: 4
+  timeToRotate: 2
   speedWalk: 20
   speedRun: 30
   enenyManager: {fileID: 0}
