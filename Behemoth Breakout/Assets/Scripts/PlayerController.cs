@@ -6,113 +6,182 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
 
-    Animator animator;
-    AudioSource audioSource;
+    public GameObject Sword;
+    public bool CanAttack = true;
+    public float AttackCooldown = 0;
+    public AudioClip SwordAttackSound;
+    public bool isAttacking = false;
 
-    [Header("Attacking")]
-    public float attackDistance = 3f;
-    public float attackDelay = 0.4f;
-    public float attackSpeed = 1f;
-    public int attackDamage = 1;
-    public LayerMask attackLayer;
+    void Update(){
+        if(Input.GetMouseButtonDown(0)){
+            if(CanAttack){
+                SwordAttack();
 
-    public GameObject hitEffect;
-    public AudioClip swordSwing;
-    public AudioClip hitSound;
-
-    bool attacking = false;
-    bool readyToAttack = true;
-    int attackCount;
-
-    [Header("Input")]
-    public KeyCode leaveGrappleKey = KeyCode.Mouse0;
-
-    void Awake()
-    { 
-        animator = GetComponentInChildren<Animator>();
-        audioSource = GetComponent<AudioSource>();
-    }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(leaveGrappleKey)) // Fire1 corresponds to the left mouse button
-        {
-            Attack();
-            Debug.Log("Attackingggggg");
-        }
-    }
-
-    public void Attack()
-    {
-        if (!readyToAttack || attacking) return;
-
-        readyToAttack = false;
-        attacking = true;
-
-        Invoke(nameof(ResetAttack), attackSpeed);
-        Invoke(nameof(AttackRaycast), attackDelay);
-
-        audioSource.pitch = Random.Range(0.9f, 1.1f);
-        audioSource.PlayOneShot(swordSwing);
-
-        if (attackCount == 0)
-        {
-            ChangeAnimationState("Attack 1");
-            attackCount++;
-        }
-        else
-        {
-            ChangeAnimationState("Attack 2");
-            attackCount = 0;
-        }
-    }
-
-    void ResetAttack()
-    {
-        attacking = false;
-        readyToAttack = true;
-    }
-
-    void AttackRaycast()
-    {
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.forward, out hit, attackDistance, attackLayer))
-        { 
-            HitTarget(hit.point);
-
-            if (hit.transform.TryGetComponent<Actor>(out Actor target))
-            { 
-                target.TakeDamage(attackDamage); 
             }
-        } 
+
+        }
+
     }
 
-    void HitTarget(Vector3 pos)
-    {
-        audioSource.pitch = 1;
-        audioSource.PlayOneShot(hitSound);
+    public void SwordAttack(){
+        isAttacking = true;
+        CanAttack = false;
+        Animator anim = Sword.GetComponent<Animator>();
+        anim.SetBool("isAttacking",true);
+        
+        AudioSource ac = GetComponent<AudioSource>();
+        ac.PlayOneShot(SwordAttackSound);
+        StartCoroutine(ResetAttackCoolDown());
 
-        GameObject hitEffectInstance = Instantiate(hitEffect, pos, Quaternion.identity);
-        Destroy(hitEffectInstance, 20);
+    }
+    
+    IEnumerator ResetAttackCoolDown(){
+        StartCoroutine(ResetAttackBool());
+        yield return new WaitForSeconds(AttackCooldown);
+        CanAttack = true;
+        Animator anim = Sword.GetComponent<Animator>();
+        anim.SetBool("isAttacking",false);
+
     }
 
-    void ChangeAnimationState(string newState) 
-    {
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName(newState)) return;
-        animator.CrossFadeInFixedTime(newState, 0.2f);
+    IEnumerator ResetAttackBool(){
+        yield return new WaitForSeconds(1.0f);
+        isAttacking = false;
+        CanAttack = true;
+        Animator anim = Sword.GetComponent<Animator>();
+        anim.SetBool("isAttacking",false);
+
     }
 
-    void SetAnimations()
-    {
-        // // If player is not attacking
-        // if(!attacking)
-        // {
-        //     if(_PlayerVelocity.x == 0 &&_PlayerVelocity.z == 0)
-        //     { ChangeAnimationState(IDLE); }
-        //     else
-        //     { ChangeAnimationState(WALK); }
-        // }
-    }
+    // Animator animator;
+    // AudioSource audioSource;
+
+    // [Header("Attacking")]
+    // public float attackDistance = 3f;
+    // public float attackDelay = 0.4f;
+    // public float attackSpeed = 1f;
+    // public int attackDamage = 1;
+    // public LayerMask attackLayer;
+
+    // public GameObject hitEffect;
+    // public AudioClip swordSwing;
+    // public AudioClip hitSound;
+
+    // bool attacking = false;
+    // bool readyToAttack = true;
+    // int attackCount;
+
+    // [Header("Input")]
+    // public KeyCode leaveGrappleKey = KeyCode.Mouse0;
+
+    // void Awake()
+    // { 
+    //     animator = GetComponentInChildren<Animator>();
+    //     audioSource = GetComponent<AudioSource>();
+    // }
+
+    // void Update()
+    // {
+    //     if (Input.GetKeyDown(leaveGrappleKey)) // Fire1 corresponds to the left mouse button
+    //     {
+    //         Attack();
+    //         Debug.Log("Attackingggggg");
+    //     }
+    // }
+
+    // public void Attack()
+    // {
+    //     if (!readyToAttack || attacking) return;
+
+    //     readyToAttack = false;
+    //     attacking = true;
+
+    //     Invoke(nameof(ResetAttack), attackSpeed);
+    //     Invoke(nameof(AttackRaycast), attackDelay);
+
+    //     // audioSource.pitch = Random.Range(0.9f, 1.1f);
+    //     // audioSource.PlayOneShot(swordSwing);
+
+    //     if (attackCount == 0)
+    //     {
+    //         ChangeAnimationState("Attack 1");
+    //         attackCount++;
+    //         Debug.Log("Attack 11111111111111111111");
+    //     }
+    //     else
+    //     {
+    //         ChangeAnimationState("Attack 2");
+    //         attackCount = 0;
+    //         Debug.Log("Attack 222222222222222222222");
+    //     }
+    // }
+
+    // void ResetAttack()
+    // {
+    //     attacking = false;
+    //     readyToAttack = true;
+    // }
+
+    // // void AttackRaycast()
+    // // {
+    // //     RaycastHit hit;
+    // //     if (Physics.Raycast(transform.position, transform.forward, out hit, attackDistance, attackLayer))
+    // //     { 
+    // //         HitTarget(hit.point);
+
+    // //         if (hit.transform.TryGetComponent<Actor>(out Actor target))
+    // //         { 
+    // //             target.TakeDamage(attackDamage); 
+    // //         }
+    // //     } 
+    // // }
+
+    // void AttackRaycast()
+    // {
+    //     RaycastHit[] hits = Physics.RaycastAll(transform.position, transform.forward, attackDistance, attackLayer);
+
+    //     foreach (RaycastHit hit in hits)
+    //     {
+    //         HitTarget(hit.point);
+
+    //         // Check if the hit object has an Actor component (or any other component that handles damage)
+    //         Actor target = hit.transform.GetComponent<Actor>();
+
+    //         // If the hit object has an Actor component, apply damage
+    //         if (target != null)
+    //         {
+    //             target.TakeDamage(attackDamage);
+    //             Debug.Log("ATTACK WORKEDDDDDDDDDDDDDDDDD");
+    //         }
+    //     }
+    // }
+
+    // void HitTarget(Vector3 pos)
+    // {
+    //     audioSource.pitch = 1;
+    //     audioSource.PlayOneShot(hitSound);
+
+    //     GameObject hitEffectInstance = Instantiate(hitEffect, pos, Quaternion.identity);
+    //     Destroy(hitEffectInstance, 20);
+    // }
+
+    // void ChangeAnimationState(string newState) 
+    // {
+    //     if (animator.GetCurrentAnimatorStateInfo(0).IsName(newState)) return;
+    //     animator.CrossFadeInFixedTime(newState, 0.2f);
+    // }
+
+    // void SetAnimations()
+    // {
+    //     // // If player is not attacking
+    //     // if(!attacking)
+    //     // {
+    //     //     if(_PlayerVelocity.x == 0 &&_PlayerVelocity.z == 0)
+    //     //     { ChangeAnimationState(IDLE); }
+    //     //     else
+    //     //     { ChangeAnimationState(WALK); }
+    //     // }
+    // }
 
 
 

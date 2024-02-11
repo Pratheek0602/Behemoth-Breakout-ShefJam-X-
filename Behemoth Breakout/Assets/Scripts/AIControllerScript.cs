@@ -57,11 +57,11 @@ public class AIController : MonoBehaviour
         EnvironmentView();
 
         if (!m_IsPatrol) {
-            Debug.Log("chasing");
+            // Debug.Log("chasing");
             Chasing();
         }
         else {
-            Debug.Log("pattroling");
+            // Debug.Log("pattroling");
             Patroling();
             
         }
@@ -76,14 +76,14 @@ public class AIController : MonoBehaviour
         // Check if the enemy is close enough to the player
         if (Vector3.Distance(transform.position, m_PlayerPosition) <= 10) {
             // If the enemy is close enough, consider it as "reached"
-            Debug.Log("close" + m_PlayerPosition);
+            // Debug.Log("close" + m_PlayerPosition);
             Vector3 destination = m_PlayerPosition - (transform.forward * 2f);
             navMeshAgent.SetDestination(destination);
             CaughtPlayer();
         }
 
         if (!m_CaughtPlayer) {
-            Debug.Log("??????????????");
+            // Debug.Log("??????????????");
             Move(speedRun);
             navMeshAgent.SetDestination(m_PlayerPosition);
         }
