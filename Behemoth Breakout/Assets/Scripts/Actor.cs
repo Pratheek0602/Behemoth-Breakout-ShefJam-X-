@@ -7,11 +7,15 @@ public class Actor : MonoBehaviour
     int currentHealth;
     public int maxHealth;
     public AIController aiController; // Reference to the AIController script attached to the enemy
+
+    public NewBehaviourScript enenyManager;
     
 
     void Awake()
     {
         currentHealth = maxHealth;
+        enenyManager = FindObjectOfType<NewBehaviourScript>();
+        aiController = FindObjectOfType<AIController>();
     }
 
     public void TakeDamage(int amount)
@@ -28,10 +32,12 @@ public class Actor : MonoBehaviour
 
     private void Death()
     {
-        if(aiController != null)
+        if(enenyManager != null)
         {
             // Debug.Log("ctime to die");
+            enenyManager.EnemyKilled();
             aiController.Die();
+            
         }
         else{
             Debug.Log("oopds none");

@@ -12,7 +12,7 @@ public class AIController : MonoBehaviour
     public float speedWalk = 6;
     public float speedRun = 9;
 
-    public NewBehaviourScript enenyManager;
+    // public NewBehaviourScript enenyManager;
 
     public float viewRaduis = 15;
     public float viewAngle = 90;
@@ -53,7 +53,7 @@ public class AIController : MonoBehaviour
         navMeshAgent.speed = speedWalk;
         navMeshAgent.SetDestination(waypoints[m_CurrentWaypointIndex].position);
 
-        enenyManager = FindObjectOfType<NewBehaviourScript>();
+        // enenyManager = FindObjectOfType<NewBehaviourScript>();
     }
 
     // Update is called once per frame
@@ -77,7 +77,7 @@ public class AIController : MonoBehaviour
         // animator.SetBool("isDead", true);
         // Debug.Log("shinda");
         // StartCoroutine(DelayedAction());
-        enenyManager.EnemyKilled();
+        // enenyManager.EnemyKilled();
         animator.enabled = false;
         navMeshAgent.enabled = false;
         enabled = false;

@@ -5,13 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class NewBehaviourScript : MonoBehaviour
 {
-    public int totalEnemies = 1; // Set the total number of enemies here
+    public int totalEnemies = 3; // Set the total number of enemies here
     private int enemiesKilled = 0;
 
     // Method to be called when an enemy is killed
     public void EnemyKilled()
     {
         enemiesKilled++;
+        Debug.Log("ENEMY KILLEDDDDDDDDDDDDD");
 
         // Check if all enemies are killed
         if (enemiesKilled >= totalEnemies)
@@ -27,6 +28,6 @@ public class NewBehaviourScript : MonoBehaviour
     private void ShowGameOverScreen()
     {
         // Code t
-        SceneManager.LoadScene("Game Clear");
+        SceneManager.LoadScene("Game Over", LoadSceneMode.Single);
     }
 }
